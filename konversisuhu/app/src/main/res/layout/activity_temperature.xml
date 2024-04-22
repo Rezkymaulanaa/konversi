@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context=".TemperatureActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Temperature Converter"
+            android:textSize="18dp"
+            android:textColor="#000"
+            android:padding="15dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingHorizontal="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Degrees"
+                android:textSize="16dp"
+                android:fontFamily="@font/poppins"
+                android:textColor="#888888"/>
+
+            <EditText
+                android:id="@+id/etSuhu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masukkan Suhu..."
+                android:fontFamily="@font/poppins"
+                android:textSize="18dp"
+                android:textColor="#000"
+                android:inputType="numberDecimal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingHorizontal="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Temperature"
+                android:fontFamily="@font/poppins"
+                android:textColor="#888888"/>
+
+            <Spinner
+                android:id="@+id/Opsi"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:spinnerMode="dropdown"
+                android:textColor="#000"
+                android:dropDownWidth="wrap_content" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D2191919"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="25dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Result"
+            android:textSize="16dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="#888888"/>
+
+        <TextView
+            android:id="@+id/tvhasilKonversi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textColor="#000"
+            android:textSize="20dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#D2191919"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnConvert"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="25dp"
+        app:cornerRadius="15dp"
+        android:textColor="#fff"
+        android:text="Convert"
+        android:textSize="20dp"
+        android:fontFamily="@font/poppins_bold"
+        android:backgroundTint="#4275FF"/>
+
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="10dp"
+        app:cornerRadius="15dp"
+        android:textColor="#fff"
+        android:text="Clear"
+        android:textSize="20dp"
+        android:fontFamily="@font/poppins_bold"
+        android:backgroundTint="#616161"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/btnHome"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="25dp"
+            app:cornerRadius="15dp"
+            android:textColor="#fff"
+            android:onClick="pindahHome"
+            android:text="Back to Home"
+            android:textSize="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:backgroundTint="#4275FF"/>
+    </LinearLayout>
+
+</LinearLayout>
