@@ -49,7 +49,7 @@
                 android:id="@+id/etMatauang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Masukkan jumlah uang..."
+                android:hint="Rp."
                 android:fontFamily="@font/poppins"
                 android:textSize="18dp"
                 android:textColor="#000"

@@ -14,13 +14,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 public class CurrencyActivity extends AppCompatActivity {
 
     EditText etMatauang;
     Spinner Opsi;
     Button btnConvert, btnClear;
     TextView tvhasilKonversi;
-    private String Pilihan[] = {"-ConverCurrency Option-","IDR to USD", "IDR to GBP", "IDR to EUR", "IDR to JPY",
+    private String Pilihan[] = {"-ConverCurrency Option-", "IDR to USD", "IDR to GBP", "IDR to EUR", "IDR to JPY",
             "IDR to SGD", "IDR to CNY", "IDR to KRW", "IDR to INR",
             " IDR to MYR", "IDR to MXN", " IDR to CAD", " IDR to AUD"};
 
@@ -35,7 +37,7 @@ public class CurrencyActivity extends AppCompatActivity {
     double kursMYR = 3537.0;
     double kursMXN = 207.0;
     double kursCAD = 12164.0;
-    double kursAUD = 11128.0; 
+    double kursAUD = 11128.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,70 +67,69 @@ public class CurrencyActivity extends AppCompatActivity {
         });
 
 
-
         btnConvert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String getMatauang = etMatauang.getText().toString();
 
-                if(getMatauang.isEmpty()){
+                if (getMatauang.isEmpty()) {
                     Toast.makeText(CurrencyActivity.this, "Maaf, Jumlah Uang Masih Kosong!!", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     double uang = Double.valueOf(etMatauang.getText().toString());
                     double hasil;
                     int Spinner = Opsi.getSelectedItemPosition();
-                    switch (Spinner){
-                        case 0 :
+                    switch (Spinner) {
+                        case 0:
                             Toast.makeText(CurrencyActivity.this, "Maaf, Silahkan Pilih Opsi Konversinya!!", Toast.LENGTH_SHORT).show();
                             break;
                         case 1: // IDR ke USD
                             hasil = uang / kursUSD;
-                            tvhasilKonversi.setText(String.valueOf(hasil) + "USD");
+                            tvhasilKonversi.setText("US$ " + formatDesimal(hasil));
                             break;
                         case 2: // IDR ke GBP
                             hasil = uang / kursGBP;
-                            tvhasilKonversi.setText(String.valueOf(hasil) + "GBP");
+                            tvhasilKonversi.setText("£" + formatDesimal(hasil));
                             break;
                         case 3: // IDR ke EUR
                             hasil = uang / kursEUR;
-                            tvhasilKonversi.setText(String.valueOf(hasil) + "EUR");
+                            tvhasilKonversi.setText("€" + formatDesimal(hasil));
                             break;
                         case 4: // IDR ke JPY
                             hasil = uang / kursJPY;
-                            tvhasilKonversi.setText(String.valueOf(hasil) + "JPY");
+                            tvhasilKonversi.setText("¥" + formatDesimal(hasil));
                             break;
                         case 5: // IDR ke SGD
                             hasil = uang / kursSGD;
-                            tvhasilKonversi.setText(String.valueOf(hasil) + "SGD");
+                            tvhasilKonversi.setText("SG$ " + formatDesimal(hasil));
                             break;
                         case 6: // IDR ke CNY
                             hasil = uang / kursCNY;
-                            tvhasilKonversi.setText(String.valueOf(hasil) + "CNY");
+                            tvhasilKonversi.setText("¥" + formatDesimal(hasil));
                             break;
                         case 7: // IDR ke KRW
                             hasil = uang / kursKRW;
-                            tvhasilKonversi.setText(String.valueOf(hasil) + "KRW");
+                            tvhasilKonversi.setText("₩" + formatDesimal(hasil));
                             break;
                         case 8: // IDR ke INR
                             hasil = uang / kursINR;
-                            tvhasilKonversi.setText(String.valueOf(hasil) + "INR");
+                            tvhasilKonversi.setText("₹" + formatDesimal(hasil));
                             break;
                         case 9: // IDR ke MYR
                             hasil = uang / kursMYR;
-                            tvhasilKonversi.setText(String.valueOf(hasil) + "MYR");
+                            tvhasilKonversi.setText("RM " + formatDesimal(hasil));
                             break;
                         case 10: // IDR ke MXN
                             hasil = uang / kursMXN;
-                            tvhasilKonversi.setText(String.valueOf(hasil) + "MXN");
+                            tvhasilKonversi.setText("Mex$ " + formatDesimal(hasil));
                             break;
                         case 11: // IDR ke CAD
                             hasil = uang / kursCAD;
-                            tvhasilKonversi.setText(String.valueOf(hasil) + "CAD");
+                            tvhasilKonversi.setText("C$ " + formatDesimal(hasil));
                             break;
                         case 12: // IDR ke AUD
                             hasil = uang / kursAUD;
-                            tvhasilKonversi.setText(String.valueOf(hasil) + "AUD");
+                            tvhasilKonversi.setText("A$ " + formatDesimal(hasil));
                             break;
 
                     }
@@ -137,6 +138,11 @@ public class CurrencyActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private String formatDesimal(double nilai) {
+        DecimalFormat df = new DecimalFormat("#.###");
+        return df.format(nilai);
     }
 
     public void pindahHome(View view) {
