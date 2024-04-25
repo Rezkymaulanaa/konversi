@@ -48,6 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
+            android:paddingHorizontal="18dp"
             android:text="Choose the converter you want, we provide temperature conversion and currency conversion"
             android:textColor="#000"
             android:textSize="14dp" />
